@@ -33,7 +33,7 @@ const displayScrollTop = () => {
 const stickHeader = () => {
     let scrollTop = document.querySelector('html').scrollTop;
     let navBar = document.querySelector('#navTop');
-    if ( scrollTop > window.innerHeight ) {
+    if ( scrollTop > (window.innerHeight * 1.2) ) {
         return navBar.style.position = "fixed";
     }
     return navBar.style.position = "static";
