@@ -1,0 +1,8 @@
+{% extends "base.html.twig" %}
+
+{% block body %} 
+    {% include "elements/navbar.html.twig" %} 
+    {% block masthead %}{% endblock %}
+    {% block content%} {% endblock %}
+    {% include "elements/footer.html.twig" %}
+{% endblock %}

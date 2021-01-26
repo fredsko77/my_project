@@ -1,0 +1,30 @@
+<header id="navTop">
+    <a href="{{ path('home') }}" class="nav-brand">
+        <img 
+            src="{{ asset('assets/img/logo.png') }}" 
+            alt="Logo du site" 
+            srcset="{{ asset('assets/img/logo.png') }}"
+            class="nav-logo"
+        >
+    </a>
+    <ul class="nav" id="menu-mobile">
+        <li class="nav-item">
+            <a class="nav-link" href="#home">Accueil</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#about">À propos</a>
+        </li>     
+        <li class="nav-item">
+            <a class="nav-link" href="#skills">Compétences</a>
+        </li>     
+        <!-- <li class="nav-item">
+            <a class="nav-link" href="#portfolio">Portfolio</a>
+        </li>      -->
+        <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact</a>
+        </li>     
+    </ul>
+    <div id="hamburger-menu" onclick="displayMenu()">
+        <i class="fas fa-bars"></i>
+    </div>
+</header>

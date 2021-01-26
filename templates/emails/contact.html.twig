@@ -1,0 +1,21 @@
+<h4>Confirmation de votre demande de contact</h4>
+
+<p>
+    Bonjour {{ contact.name }}, <br/>
+    Votre demande de contact a bien été pris en compte, vous recevrez une réponse dans les meilleurs délais.
+</p>
+
+<p>Cordialement, </p>
+
+<p>AGATHE Frédérick</p>
+
+<h5>Récapitulatif de votre demande : </h5>
+
+<i>
+    <p>Nom : {{ contact.name }}</p>
+    <p>Email : {{ contact.email }} </p>
+    <p>Objet : {{ contact.object }} </p>
+    <p>Message: {{ contact.message }} </p>
+</i>
+
+<a href="http://{{ website }}">Lien vers le site</a>
