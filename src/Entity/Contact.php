@@ -38,6 +38,11 @@ class Contact
      */
     private $name;
 
+    /**
+     * @ORM\Column(type="string", length=25, options = {"default" = "pending"})
+     */
+    private $status;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -105,5 +110,17 @@ class Contact
             $method = 'set' . Helpers::getMethod($k);
             method_exists($this, $method) ? $this->$method($d) : null;
         endforeach;
+    }
+
+    public function getStatus(): ?string
+    {
+        return $this->status;
+    }
+
+    public function setStatus(?string $status): self
+    {
+        $this->status = $status;
+
+        return $this;
     }
 }

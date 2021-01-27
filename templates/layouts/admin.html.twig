@@ -1,1 +1,10 @@
 {% extends "base.html.twig" %}
+
+{% block title %}Administration du site - {% endblock %}
+
+{% block body %}
+{% include "elements/admin-navbar.html.twig" %}
+    <section class="container-fluid" id="admin">
+        {% block content %}{% endblock %}
+    </section>
+{% endblock %}

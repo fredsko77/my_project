@@ -1,0 +1,43 @@
+{% extends "layouts/admin.html.twig" %}
+
+{% block title "Gestion des contacts" %}
+
+{% block content %}
+    <h1 class="h3 mb-3">Gestion des contacts</h1>
+    <table class="table table-hover">        
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Email</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Objet</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for contact in contacts %}
+                <tr>
+                    <td scope="row">{{ contact.id }}</td>
+                    <td>{{ contact.email }}</td>
+                    <td>{{ contact.name }}</td>
+                    <td>{{ contact.object }}</td>
+                    <td>
+                        {% if contact.status != "pending" %}
+                            <a 
+                                href="{{ path('admin_contact_reply', {'id': contact.id }) }}" 
+                                class="btn btn-info"
+                            >Répondre</a>                            
+                        {% else %}
+                            <a 
+                                href="{{ path('api_contact_delete', {'id': contact.id }) }}" 
+                                class="btn btn-danger"
+                                onclick="handleDelete(this, event)"
+                            >Supprimer</a>
+                        {% endif %}
+                    </td>
+                </tr>                
+            {% endfor %}
+        </tbody>
+    </table>
+    {{ dump(contacts) }}
+{% endblock %}

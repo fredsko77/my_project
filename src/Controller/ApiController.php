@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\Contact;
+use App\Repository\ContactRepository;
+use App\Services\Helpers;
 use Symfony\Component\Mime\Email;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
@@ -13,17 +15,24 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-class ContactController extends AbstractController
+class ApiController extends AbstractController
 {
-
+    
     /**
      * @var EntityManagerInterface $entityManager
      */
     private $entityManager;
+    
+    /**
+     * @var ContactRepository $contactRepository
+     */
+    private $contactRepository;
 
-    public function __construct( EntityManagerInterface $entityManager)
+    public function __construct( EntityManagerInterface $entityManager, ContactRepository $contactRepository)
     {
         $this->entityManager = $entityManager;
+        $this->contactRepository = $contactRepository;
+        $this->helpers = new Helpers;
     }
 
     /**
@@ -33,7 +42,7 @@ class ContactController extends AbstractController
      *      methods={"POST"}
      * )
      */
-    public function api_contact(Request $request, MailerInterface $mailer)
+    public function api_contact(Request $request, MailerInterface $mailer) :JsonResponse
     {
         $data = json_decode( $request->getContent(), true);
 
@@ -66,4 +75,36 @@ class ContactController extends AbstractController
 
         return $response;
     }
+    
+    /**
+     * @Route(
+     *      "/api/cotacts/delete/{id}", 
+     *      name="api_contact_delete",
+     *      requirements={"id"="\d+"},
+     *      methods={"DELETE"}
+     * )
+     */
+    public function api_contact_delete(int $id)
+    {
+        $contact = $this->contactRepository->find($id);
+        
+        if ($contact instanceof Contact) {
+            $this->entityManager->remove($contact);
+            $this->entityManager->flush();
+
+            return $this->helpers->jsonResponse([
+                'message' => $this->helpers->setJsonMessage([
+                    'content' => 'Le contact a bien été supprimé',
+                    'type' => 'success',
+                ])
+            ]);
+        }
+
+        return $this->helpers->jsonResponse([
+            'message' => $this->helpers->setJsonMessage([
+                'content' => 'Une erreur est survenue',
+            ])
+        ], Response::HTTP_NOT_FOUND);
+    }
+
 }

@@ -645,3 +645,35 @@ transition: all 500ms ease-in-out;
   0% { height: auto; } 30% { height: 18%; }  70% { height: 10%; } 100% { height: 0; }    
 }
 }
+
+
+
+
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------- Admin part ------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------*/
+
+#login-form, [name=registration_form] {
+  width: 100%;
+  max-width: 768px;
+  margin: 10% auto 0;
+  padding: 3rem 2rem;
+  box-shadow: 0 0 .5rem rgba(0, 0, 0, .15) ;
+  border-radius: 0;
+}
+
+@media screen and (max-width: 900px) {
+  #login-form, [name=registration_form] {
+    box-shadow: unset;
+  }
+}
+
+#admin {
+  min-height: calc(100vh - 60px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: .75rem 1rem;
+}

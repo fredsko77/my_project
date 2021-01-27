@@ -2,6 +2,9 @@
 
 namespace App\Services;
 
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\JsonResponse;
+
 class Helpers 
 {
 
@@ -27,7 +30,7 @@ class Helpers
          return ucfirst($str);
     }
 
-        /**
+     /**
      * Generate a token
      * @param integer $length
      * @return string
@@ -37,6 +40,28 @@ class Helpers
         $char_to_shuffle =  'azertyuiopqsdfghjklwxcvbnAZERTYUIOPQSDFGHJKLLMWXCVBN1234567890';
         return substr( str_shuffle($char_to_shuffle) , 0 , $length);
     }
-    
+        
+    /**
+     * setJsonMessage
+     * @param  string $type
+     * @param  string $message
+     * @return array
+     */
+    public function setJsonMessage(string $message, string $type = 'danger') :array
+    {
+        return ["type" => $type, "content" => $message];
+    } 
+        
+     /**
+     * jsonResponse
+     *
+     * @param  array $data
+     * @param  int $status
+     * @return JsonResponse
+     */
+    public function jsonResponse(array $data = [], int $status = Response::HTTP_OK):JsonResponse 
+    {
+        return new JsonResponse($data, $status);
+    }
 
 }
