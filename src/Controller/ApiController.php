@@ -56,6 +56,7 @@ class ApiController extends AbstractController
 
         $contact = new Contact();
         $contact->_hydrate($data);
+        $contact->setStatus("pending");
 
         $this->entityManager->persist($contact);
         $this->entityManager->flush();
