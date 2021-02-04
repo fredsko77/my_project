@@ -31,7 +31,7 @@
 
     <section class="section" id="about">
         <div class="container">            
-            <article class="article col-12 col-md-6">
+            <article data-aos="fade-left" class="article col-12 col-md-6">
                 <h2 class="article-title">À propos de moi</h2>
                 <div class="article-text">
                     <p>
@@ -48,7 +48,7 @@
                     </p> 
                 </div>
             </article>
-            <article class="article col-12 col-md-6">
+            <article data-aos="fade-right" class="article col-12 col-md-6">
                 <h2 class="article-title">Mes services</h2>
                 <div class="bloc-container">
                     <div class="bloc">
@@ -88,7 +88,7 @@
 
     <section class="section" id="skills">
         <div class="container">
-            <article class="article col-12 col-md-6">
+            <article data-aos="fade-right" class="article col-12 col-md-6">
                 <h2 class="article-title">Mes compétences techniques</h2>        
                 <div class="progress-container">
                     <div class="language d-flex justify-content-between">
@@ -147,7 +147,7 @@
     
                 <div class="article-content"></div> 
             </article>
-            <article class="article col-12 col-md-6">
+            <article data-aos="fade-left" class="article col-12 col-md-6">
                 <h2 class="article-title">Mes outils techniques</h2>
                 <div class="tools">
                     <div class="tool">
@@ -176,75 +176,24 @@
         </div>
     </section>
 
+    {% if projects %}
+        
+        <section class="section" id="portfolio">
+            <h2 class="section-title text-center">Mes réalisations</h2>
+            <div class="container">
+                {% include "home/_project_repeater.html.twig" %}
+            </div>
+        </section>
+
+    {% endif %}
+
     <section class="section" id="contact">
         <div class="container">
             {% include "home/_form.html.twig" %}
         </div>
     </section>
 
-    <!-- <section class="section" id="projects">
-        <h2 class="section-title text-center">Mes réalisations</h2>
-        <div class="container">
-            <div class="project">
-                <div class="project-header">                    
-                    <img class="project-img" src="{{ asset('assets/img/banner.jpg') }}" alt="Image du projet Chalets et Caviar" srcset="{{ asset('assets/img/banner.jpg') }}">
-                    <div class="project-overlay">
-                        <a 
-                            class="project-link" 
-                            href="#"
-                            onclick="openModal(event)"
-                        >
-                            <i class="fas fa-link"></i>
-                        </a>
-                    </div>
-                </div>
-                <a class="project-title">Chalets et Caviar</a>
-            </div>
-        </div>
-    </section>
-
-    <div class="dialog-container hidden">
-        <div class="dialog-box">
-            <div class="dialog-header">
-                <span class="dialog-title">Chalets et Caviar</span>
-                <span class="dialog-close" id="close-dialog" onclick="openModal(event)">
-                    <i class="fas fa-times"></i>
-                </span>
-            </div>
-            <div class="dialog-body">
-                <div class="dialog-project">
-                    <img 
-                        src="{{ asset('assets/img/banner.jpg') }}" 
-                        alt="" 
-                        srcset="{{ asset('assets/img/banner.jpg') }}"
-                        class="img-dialog"
-                    >
-                    <div class="project-content">
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum nesciunt, harum repellat officia quae odit natus! Repudiandae corrupti provident debitis consectetur maiores, ducimus veritatis quasi esse illo impedit! Totam eum, magni atque ex quam facilis repellendus ea dolore odit, nisi alias vero quis nam officiis itaque velit! Qui esse recusandae quam fugiat cumque, minima eum provident eius a quae laboriosam velit iure corrupti tenetur aliquam repellendus facilis repellat ducimus corporis, architecto vel assumenda voluptates. Veniam distinctio accusamus quaerat dolorem impedit voluptate velit nisi exercitationem molestias! Culpa possimus, adipisci officiis magnam, nulla ab aperiam quae aliquam atque obcaecati laudantium voluptates quos?
-                        </p>
-                        <p>
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum repellat aut pariatur, commodi fugit quidem recusandae eaque eius debitis quasi ducimus ut itaque quam laudantium quia libero dolores error odio blanditiis ipsam soluta tempore delectus veritatis! Similique odit rem voluptatum voluptas repellendus recusandae consectetur saepe quaerat cupiditate. Sapiente, quisquam doloremque.
-                        </p>
-                        <div class="project-techno">
-                            <ul>
-                                <li>html</li>
-                                <li>html</li>
-                                <li>html</li>
-                                <li>html</li>
-                                <li>html</li>
-                            </ul>
-                        </div>
-                        <a href="http://">Lien du site</a>
-                    </div>
-                </div>
-            </div>
-            <div class="dialog-footer">
-                <button class="btn btn-secondary" onclick="openModal(event)">Fermer</button>
-            </div>
-        </div>
-    </div> -->
-
+    {% include "home/_dialog.html.twig" %}
     
     <div class="loader-container hidden" id="load"></div>
 
@@ -253,5 +202,11 @@
 {% block javascripts %}
 
     <script async src="{{ asset('assets/js/ajax.js') }}"></script>
+    <script>
+        AOS.init({
+            duration: 1200,
+            once: false,
+        });
+    </script>
 
 {% endblock %}

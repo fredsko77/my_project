@@ -1,0 +1,53 @@
+{{ form_start(form, {'attr': {'class': 'project-form'}}) }}
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+    {% for message in app.flashes('danger') %}
+        <div class="alert alert-danger">
+            {{ message }}
+        </div>
+    {% endfor %}
+    <div class="form-group">
+        <label for="">Titre</label>
+        {{ form_widget(form.title, {'attr' : {'placeholder' : 'Titre de l\'article'}}) }}
+    </div>
+    <div class="form-group">
+        <label for="">Détails</label>
+        {{ form_widget(form.details, {'attr' : {'placeholder' : 'Titre de l\'article', 'rows': 10}}) }}
+    </div>
+    <div class="form-group">
+        <label for="link">Lien du projet</label>
+        {{ form_widget(form.link, {'attr' : {'placeholder' : 'L\'url vers le projet'}}) }}
+    </div>
+            
+        <img 
+            src="{{ asset('/uploads/' ~ project.image) }}" 
+            alt="Image du projet" 
+            srcset="{{ asset('/uploads/' ~ project.image) }}"
+            id="project-img-form"
+            width="150"
+            {% if not project.image %} class="hidden" {% endif %}
+        >        
+    
+    {{ form_row(form.image, {'attr': {'value': project.image}}) }}
+    {# <fieldset class="form-group">
+        <legend class="col-form-label">Les technos du projet</legend>
+        {% for key in form.techno.vars.choices %}
+            <h5>{{ key.label }}</h5>
+            {% for choice in key.choices %}
+            <div class="form-check form-check-inline">                
+                <input class="form-check-input" name="project[techno][]" type="checkbox" id="{{ choice.data }}" value="{{ choice.value }}">
+                <label class="form-check-label" for="{{ choice.data }}">{{ choice.label }}</label>
+            </div>
+            {% endfor %}
+        {% endfor %}
+    </fieldset> #}
+    <fieldset class="form-group">
+        <legend class="col-form-label">Les technos utilisés sur le projet</legend>
+        {{ form_widget(form.techno, {'label' : 'les technos du site'}) }}
+    </fieldset>
+    {{ form_row(form.status) }}
+    <button class="btn btn-primary">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}

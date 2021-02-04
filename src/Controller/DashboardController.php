@@ -48,7 +48,7 @@ class DashboardController extends AbstractController
      * methods={"GET"}
      * )
      */
-    public function contact($id)
+    public function reply($id)
     {
         return $this->render("dashboard/contacts/edit.html.twig", [
             "contact" => $this->contactRepository->find($id),

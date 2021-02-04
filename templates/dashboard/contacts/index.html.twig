@@ -3,41 +3,28 @@
 {% block title "Gestion des contacts" %}
 
 {% block content %}
-    <h1 class="h3 mb-3">Gestion des contacts</h1>
-    <table class="table table-hover">        
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Email</th>
-                <th scope="col">Nom</th>
-                <th scope="col">Objet</th>
-                <th scope="col">Actions</th>
-            </tr>
-        </thead>
-        <tbody>
+
+    <div class="container no-padding">
+        <h1 class="h3 mb-5">Gestion des contacts</h1>
+        <div class="contacts">
             {% for contact in contacts %}
-                <tr>
-                    <td scope="row">{{ contact.id }}</td>
-                    <td>{{ contact.email }}</td>
-                    <td>{{ contact.name }}</td>
-                    <td>{{ contact.object }}</td>
-                    <td>
-                        {% if contact.status != "pending" %}
-                            <a 
-                                href="{{ path('admin_contact_reply', {'id': contact.id }) }}" 
-                                class="btn btn-info"
-                            >Répondre</a>                            
-                        {% else %}
-                            <a 
-                                href="{{ path('api_contact_delete', {'id': contact.id }) }}" 
-                                class="btn btn-danger"
-                                onclick="handleDelete(this, event)"
-                            >Supprimer</a>
-                        {% endif %}
-                    </td>
-                </tr>                
+                <div class="contact">
+                    <div class="contact-object">{{ contact.object }}</div>
+                    <a 
+                        style="color: #212529;"
+                        onclick="getContact(this,event)"
+                        href="{{ path('admin_api_get_contact', { id: contact.id } ) }}"
+                    ><i class="fas fa-plus"></i></a>
+                </div>
             {% endfor %}
-        </tbody>
-    </table>
-    {{ dump(contacts) }}
+        </div>
+        <div class="message-container">
+            <div class="message" data-message>
+            </div>
+        </div> 
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('assets/js/admin-contact.js') }}"></script>
 {% endblock %}

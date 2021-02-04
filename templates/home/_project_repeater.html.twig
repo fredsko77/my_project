@@ -1,0 +1,24 @@
+{% for project in projects %}
+    
+    <div class="project" data-aos="zoom-in-up">
+        <div class="project-header">                    
+            <img 
+                class="project-img" 
+                src="{{ asset('uploads/' ~ project.image ) }}" 
+                alt="Image du {{ project.title }}" 
+                srcset="{{ asset('uploads/' ~ project.image ) }}" 
+            />
+            <div class="project-overlay">
+                <a 
+                    class="project-link" 
+                    href="{{ path('api_project', {id: project.id}) }}"
+                    onclick="openModal(event); getProject(this, event); "
+                >
+                    <i class="fas fa-link"></i>
+                </a>
+            </div>
+        </div>
+        <a class="project-title">{{ project.title }}</a>
+    </div>
+
+{% endfor %}

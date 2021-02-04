@@ -64,4 +64,17 @@ class Helpers
         return new JsonResponse($data, $status);
     }
 
+    public function transformKeys($instance,string $class):array
+    {
+        $array = [];
+        $instance = (array) $instance;
+
+        foreach($instance as $key => $value) {
+            $key = str_replace("\X00{$class}\X00", "", $key);
+            $array[$key] = $value;
+        }
+
+        return $array;
+    }
+
 }

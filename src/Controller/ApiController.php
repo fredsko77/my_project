@@ -3,9 +3,11 @@
 namespace App\Controller;
 
 use App\Entity\Contact;
-use App\Repository\ContactRepository;
+use App\Entity\Project;
 use App\Services\Helpers;
 use Symfony\Component\Mime\Email;
+use App\Repository\ContactRepository;
+use App\Repository\ProjectRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\HttpFoundation\Request;
@@ -27,11 +29,17 @@ class ApiController extends AbstractController
      * @var ContactRepository $contactRepository
      */
     private $contactRepository;
+    
+    /**
+     * @var ProjectRepository $projectRepository
+     */
+    private $projectRepository;
 
-    public function __construct( EntityManagerInterface $entityManager, ContactRepository $contactRepository)
+    public function __construct( EntityManagerInterface $entityManager, ContactRepository $contactRepository, ProjectRepository $projectRepository)
     {
         $this->entityManager = $entityManager;
         $this->contactRepository = $contactRepository;
+        $this->projectRepository = $projectRepository;
         $this->helpers = new Helpers;
     }
 
@@ -79,12 +87,13 @@ class ApiController extends AbstractController
     
     /**
      * @Route(
-     *      "/api/cotacts/delete/{id}", 
+     *      "/api/contacts/delete/{id}", 
      *      name="api_contact_delete",
      *      requirements={"id"="\d+"},
      *      methods={"DELETE"}
      * )
      */
+    
     public function api_contact_delete(int $id)
     {
         $contact = $this->contactRepository->find($id);
@@ -107,5 +116,29 @@ class ApiController extends AbstractController
             ])
         ], Response::HTTP_NOT_FOUND);
     }
+    /**
+     * @Route(
+     *      "/api/project/{id}", 
+     *      name="api_project",
+     *      requirements={"id"="\d+"},
+     *      methods={"GET"}
+     * )
+     */
+    public function api_project(int $id)
+    {
+        $project = $this->projectRepository->find($id);
+                
+        if ($project instanceof Project) {
 
+            return $this->helpers->jsonResponse([
+                'project' => $this->helpers->transformKeys($project, Project::class)
+            ]);
+        }
+
+        return $this->helpers->jsonResponse([
+            'message' => $this->helpers->setJsonMessage([
+                'content' => 'Une erreur est survenue',
+            ])
+        ], Response::HTTP_NOT_FOUND);
+    }
 }
