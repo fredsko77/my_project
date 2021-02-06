@@ -3,15 +3,29 @@
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+        <meta name="description" content="CV développeur Web : création et développement de sites et d'applications Web. HTML5, CSS3, JQuery, Javascript, Bootstrap, PHP, Symfony, ...">
+        <meta name="Keywords" content="Frédérick AGATHE, développeur, développeur web, développeur web Paris, développeur web île-de-france, web, CV, site CV, site, application, application web, html5, css3, jquery, php, javascript">
+        <meta name="robots" content="index,follow,all">
+        <meta name="author" content="Yoann Beaugrand">
+        <meta name="google-site-verification" content="fH4YZu6ohhwsaYnR9reZGstqt6dClSoInCyke7Y1_eQ" />
         <link rel="icon" type="image/png" href="{{ asset('assets/img/logo.png') }}" />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
         <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/fontawesome-5/css/all.min.css') }}">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>  
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-75ZJ4S8NBF"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-75ZJ4S8NBF');
+        </script>      
         {% block stylesheets %}{% endblock %}
-        <title>{% block title %}{% endblock %} Frédérick AGATHE, Développeur web</title>
+        <title>{% block title %}{% endblock %}Frédérick AGATHE, développeur web junior</title>
     </head>
     <body onload="loading();stickHeader(this);" onscroll="displayScrollTop();stickHeader(this);">
         {% block body %}{% endblock %}
