@@ -1,0 +1,22 @@
+{% extends "layouts/app.twig" %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="./css/404.css">
+{% endblock %}
+
+{% block content %}
+
+    <div class="page-404">
+
+        <div class="row">
+            <div class="col-md-8 col-12">                
+                <h1 class="not-found-title mb-5">Oops!</h1>
+                <h2 class="h3 not-found-msg mb-1">Nous n'avons pas trouvé la page que vous avez demandé.</h2>
+                <div class="not-found-code mb-1">Code: <strong class="h3 font-weight-bolder text-dark">404</strong></div>
+                <a class="not-found-link text-primary" href="/">Revenir à la page d'accueil</a>
+            </div>
+        </div>
+
+    </div>
+    
+{% endblock %}

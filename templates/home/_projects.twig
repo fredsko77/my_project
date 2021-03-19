@@ -1,0 +1,39 @@
+<div class="container">
+
+    <div class="text-center">
+        <h3>Mes réalisations</h3>
+        <small>Les derniers sites que j'ai développé. </small>
+        <hr>
+    </div>
+    <div class="projects-container">
+        {% for project in projects %}
+        <div class="project" data-aos="fade-up" data-aos-duration="1000">
+            <img class="project-img" src="{{ project.image }}" alt="Image du projet" srcset="{{ project.image }}">
+            <div class="project-content">
+                <div class="project-content-name">
+                    {{ project.name }}
+                </div>
+                <div class="content">
+                    <div class="project-content-techno">
+                        {% for techno in project.techno %}
+                        <span class="badge bg-blue text-white mr-1 ml-1">{{ techno }}</span> {% endfor %}
+                    </div>
+                    <p class="project-content-details">
+                        {{ project.details }}
+                    </p>
+                    <ul class="project-content-tasks">
+                        {% for task in project.tasks %}
+                        <li>{{ task }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <a href="{{ project.link }}" target="_blank" class="btn bg-green project-content-link">
+                    <span> Voir le projet </span>
+                    <i class="icofont-external-link ml-2 mr-2"></i>
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
