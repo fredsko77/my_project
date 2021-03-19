@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap');
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Roboto', sans-serif !important;
+    background-color: #ffffff;
+}
+
+.no-padding {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+
+/* width */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+
+/* Track */
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+    background: #777995;
+    border-radius: 10px;
+}
+
+
+/* Handle on hover */
+
+::-webkit-scrollbar-thumb:hover {
+    background: #71777d;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.hidden {
+    display: none !important;
+}
+
+
+/* Background colors */
+
+.bg-blue {
+    background-color: #3fa8fa;
+}
+
+.bg-green {
+    background-color: #2fdc9c;
+}
+
+.btn.bg-green,
+.btn.bg-blue {
+    color: #ffffff;
+}
+
+
+/* Tect colors */
+
+.text-blue {
+    color: #3fa8fa !important;
+}
+
+.text-green {
+    color: #2fdc9c !important;
+}
+
+
+/* Scroll to top button */
+
+#scrollTop {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 50px;
+    border-radius: 30px;
+    z-index: 9999;
+    box-shadow: .104rem .104rem 1.208rem rgba(0, 0, 0, 0.2);
+    font-size: 1.75rem;
+}
+
+#scrollTop:hover {
+    cursor: pointer;
+}
+
+.alert.show {
+    animation: showAlert 750ms forwards;
+}
+
+.alert.hide {
+    animation: hideAlert 750ms forwards;
+}
+
+.flash .alert {
+    border-right-width: 5px;
+    max-width: 450px;
+    position: fixed;
+    bottom: 3.5em;
+    left: -1000px;
+    z-index: 99999999;
+}
+
+.alert-danger {
+    border-right-color: #721c24;
+}
+
+.alert-success {
+    border-right-color: #155724;
+}
+
+.alert-warning {
+    border-right-color: #856404;
+}
+
+.alert-info {
+    border-right-color: #0c5460;
+}
+
+.alert-primary {
+    border-right-color: #004085;
+}
+
+.alert-secondary {
+    border-right-color: #383d41;
+}
+
+.alert-dark {
+    border-right-color: #1b1e21;
+}
+
+.alert-light {
+    border-right-color: #818182;
+}
+
+@keyframes showAlert {
+    0% {
+        left: 0px;
+    }
+    50% {
+        left: 15px;
+    }
+    90% {
+        left: 10px;
+    }
+    100% {
+        left: 15px;
+    }
+}
+
+@keyframes hideAlert {
+    0% {
+        left: 15px;
+    }
+    50% {
+        left: 10px;
+    }
+    90% {
+        left: 15px;
+    }
+    100% {
+        left: -2000px;
+    }
+}
+
+.cursor-pointer:hover {
+    cursor: pointer;
+}

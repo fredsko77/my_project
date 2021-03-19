@@ -1,0 +1,48 @@
+{% extends "layouts/admin.twig" %}
+
+{% block content %}
+
+    <div class="container">
+
+        <h1 class="h3">Liste des projets</h1>
+
+        <table class="table table-striped table-hovered table-bordered">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Lien</th>
+                    <th scope="col">Lien</th>
+                    <th scope="col">Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for project in projects %}
+                    <tr data-id="{{ project.id }}">
+                        <th scope="row">{{ project.id }}</th>
+                        <td>{{ project.name }}</td>
+                        <td><a href="{{ project.link }}">Accéder au projet <i class="icofont-external-link"></i></a></td>
+                        <td>{{ project.status }}</td>
+                        <td>
+                            <a href="/admin/projet/{{ project.id }}/edit">
+                                <i class="icofont-ui-edit"></i>
+                            </a>
+                            <a href="/admin/api/projects/{{ project.id }}/delete" onclick="deleteProject(this, event)">
+                                <i class="icofont-ui-delete"></i>
+                            </a>
+                        </td>
+                    </tr>                    
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <a href="/admin/projet/nouveau" class="btn-new" title="Ajouter un nouveau projet">
+        <i class="icofont-plus"></i>
+    </a>
+    
+{% endblock %}
+
+{% block javascripts %}
+    
+{% endblock %}

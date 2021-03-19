@@ -1,0 +1,134 @@
+{% extends "layouts/app.twig" %} {% block masthead %} {% include "home/_masthead.twig" %} {% endblock %} {% block content %}
+<section class="section" id="a-propos">
+
+    <div class="container">
+
+        <div class="text-center">
+            <h3>À propos</h3>
+            <small>En quelques mots...</small>
+            <hr>
+        </div>
+
+        <div class="row mt-5">
+
+            <div class="col-12 col-md-6" data-aos="fade-up">
+                <div class="bloc-infos">
+                    <img src="./images/zepeto.jpg" class="image-zepeto" alt="" srcset="./images/zepeto.jpg">
+                    <div class="infos">
+                        <p class="info-item">
+                            <strong>Nom :
+								</strong> Frédérick AGATHE
+                        </p>
+                        <p class="info-item">
+                            <strong>Âge :
+								</strong> 25 ans
+                        </p>
+                        <p class="info-item">
+                            <strong>Ville actuelle :
+								</strong> Croissy-Beaubourg, Île-de-France
+                        </p>
+                        <p class="info-item">
+                            <strong>E-mail :
+								</strong> agathefrederick@gmail.com
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 text-justify presentation" data-aos="fade-up">
+                <p>Suite à une réorientation, j'ai souhaité me diriger vers un domaine qui m'intéressait depuis longtemps. J'ai donc suivi la formation Développeur d'application PHP - Symfony OpenClassRooms, débouchant sur un titre RNCP niveau 2 (Bac +3).</p>
+                <p>Autonome de nature, je peux travailler seul ou en groupe, étant également capable de m’adapter à un environnement que je ne connais pas.</p>
+                <p>Je suis capable d'utiliser différentes technologies comme HTML5 & CSS3, JavaScript, PHP, de même que d'utiliser des CMS comme Wordpress . Je suis aussi compétent dans l'utilisation de MVC comme Symfony.</p>
+                <p>Vous trouverez sur mon site mon CV ainsi que des projets réalisés durant mes études ou durant mon temps libre.</p>
+            </div>
+
+        </div>
+
+        <div class="actions-btn">
+            <a href="#me-contacter" class="btn-action bg-blue">Me contacter</a>
+            <a href="/mon-cv" class="btn-action bg-green">Télécharger mon CV</a>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="section" id="competences">
+
+    <div class="container">
+
+        <div class="text-center">
+            <h3>Compétences
+            </h3>
+            <small>Ce que j'ai appris pendant mon parcours</small>
+            <hr>
+        </div>
+
+        <div class="competences-container">
+            <div class="competences" data-aos="zoom-in-down">
+                <div class="competences-header">
+                    <i class="icofont-laptop-alt"></i> &nbsp; Front-end
+                </div>
+                <div class="competences-content">
+                    <p>HTML/CSS</p>
+                    <p>JQuery/Vuejs</p>
+                    <p>Javascript</p>
+                    <p>Bootstrap</p>
+                </div>
+            </div>
+            <div class="competences" data-aos="zoom-in-down">
+                <div class="competences-header">
+                    <i class="icofont-database"></i> &nbsp; Back-end
+                </div>
+                <div class="competences-content">
+                    <p>PHP/MySQL</p>
+                    <p>Ajax/Symfony</p>
+                    <p>Slim Framework</p>
+                    <p>POO/MVC/Node</p>
+                </div>
+            </div>
+            <div class="competences" data-aos="zoom-in-down">
+                <div class="competences-header">
+                    <i class="icofont-plus-square"></i> &nbsp; Extra
+                </div>
+                <div class="competences-content">
+                    <p>SEO</p>
+                    <p>Git</p>
+                    <p>Composer</p>
+                </div>
+            </div>
+            {#
+            <div class="competences">
+                <div class="competences-header"></div>
+            </div> #}
+        </div>
+
+    </div>
+
+</section>
+
+<section class="section" id="realisations">
+
+    {% include "home/_projects.twig" %}
+
+</section>
+
+<section class="section" id="me-contacter">
+
+    {% include "home/_contact.twig" %}
+
+</section>
+
+{% endblock %} {% block javascripts %}
+
+<script>
+    AOS.init({
+        duration: 1200,
+    });
+</script>
+
+
+<script src="./js/contact.js"></script>
+<script src="./js/home.js"></script>
+
+{% endblock %} {% block stylesheets %}
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> {% endblock %}
