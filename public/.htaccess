@@ -18,4 +18,12 @@
 
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteRule ^ index.php [QSA,L]
+
+  
+  RewriteCond %{HTTP_HOST} !^www.
+  RewriteRule .* https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  RewriteCond %{HTTP:X-Forwarded-Port} 80
+  RewriteRule .* https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
 </IfModule>
