@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 ###> symfony/framework-bundle ###
 /.env.test
@@ -18,6 +19,8 @@
 /phpunit.xml
 ###< symfony/phpunit-bridge ###
 =======
+=======
+>>>>>>> a7dcd2d9eb1b764cabc37232f5ca1c9156d4d917
 .idea/
 .vscode/
 /coverage/
@@ -25,5 +28,9 @@
 /logs/*
 !/logs/README.md
 .phpunit.result.cache
+<<<<<<< HEAD
+public/.htaccess
+>>>>>>> a7dcd2d9eb1b764cabc37232f5ca1c9156d4d917
+=======
 public/.htaccess
 >>>>>>> a7dcd2d9eb1b764cabc37232f5ca1c9156d4d917

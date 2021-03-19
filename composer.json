@@ -1,5 +1,6 @@
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
     "type": "project",
     "license": "proprietary",
     "require": {
@@ -53,6 +54,8 @@
             "*": "dist"
         },
 =======
+=======
+>>>>>>> a7dcd2d9eb1b764cabc37232f5ca1c9156d4d917
     "name": "slim/slim-skeleton",
     "description": "A Slim Framework skeleton application for rapid development",
     "keywords": [
@@ -96,6 +99,9 @@
     },
     "config": {
         "process-timeout": 0,
+<<<<<<< HEAD
+>>>>>>> a7dcd2d9eb1b764cabc37232f5ca1c9156d4d917
+=======
 >>>>>>> a7dcd2d9eb1b764cabc37232f5ca1c9156d4d917
         "sort-packages": true
     },
@@ -106,6 +112,7 @@
     },
     "autoload-dev": {
         "psr-4": {
+<<<<<<< HEAD
 <<<<<<< HEAD
             "App\\Tests\\": "tests/"
         }
@@ -139,12 +146,17 @@
             "require": "4.4.*"
         }
 =======
+=======
+>>>>>>> a7dcd2d9eb1b764cabc37232f5ca1c9156d4d917
             "Tests\\": "tests/"
         }
     },
     "scripts": {
         "start": "php -S localhost:8080 -t public",
         "test": "phpunit"
+<<<<<<< HEAD
+>>>>>>> a7dcd2d9eb1b764cabc37232f5ca1c9156d4d917
+=======
 >>>>>>> a7dcd2d9eb1b764cabc37232f5ca1c9156d4d917
     }
 }

@@ -1,6 +1,7 @@
 <?php
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 use App\Kernel;
 use Symfony\Component\ErrorHandler\Debug;
 use Symfony\Component\HttpFoundation\Request;
@@ -27,6 +28,8 @@ $response = $kernel->handle($request);
 $response->send();
 $kernel->terminate($request, $response);
 =======
+=======
+>>>>>>> a7dcd2d9eb1b764cabc37232f5ca1c9156d4d917
 declare (strict_types = 1);
 
 /**
@@ -69,4 +72,7 @@ $routes($app);
 
 // Run app
 $app->run();
+<<<<<<< HEAD
+>>>>>>> a7dcd2d9eb1b764cabc37232f5ca1c9156d4d917
+=======
 >>>>>>> a7dcd2d9eb1b764cabc37232f5ca1c9156d4d917

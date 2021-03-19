@@ -1,5 +1,6 @@
 <IfModule mod_rewrite.c>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <IfModule mod_negotiation.c>
         Options -MultiViews
     </IfModule>
@@ -19,6 +20,8 @@
     RewriteCond %{HTTP:Authorization} .
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 =======
+=======
+>>>>>>> a7dcd2d9eb1b764cabc37232f5ca1c9156d4d917
   RewriteEngine On
 
   # Some hosts may require you to use the `RewriteBase` directive.
@@ -46,5 +49,8 @@
   RewriteCond %{HTTP:X-Forwarded-Port} 80
   RewriteRule .* https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
+<<<<<<< HEAD
+>>>>>>> a7dcd2d9eb1b764cabc37232f5ca1c9156d4d917
+=======
 >>>>>>> a7dcd2d9eb1b764cabc37232f5ca1c9156d4d917
 </IfModule>
