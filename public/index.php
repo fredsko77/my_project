@@ -1,5 +1,35 @@
 <?php
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+use App\Kernel;
+use Symfony\Component\ErrorHandler\Debug;
+use Symfony\Component\HttpFoundation\Request;
+
+require dirname(__DIR__).'/config/bootstrap.php';
+
+if ($_SERVER['APP_DEBUG']) {
+    umask(0000);
+
+    Debug::enable();
+}
+
+if ($trustedProxies = $_SERVER['TRUSTED_PROXIES'] ?? false) {
+    Request::setTrustedProxies(explode(',', $trustedProxies), Request::HEADER_X_FORWARDED_FOR | Request::HEADER_X_FORWARDED_PORT | Request::HEADER_X_FORWARDED_PROTO);
+}
+
+if ($trustedHosts = $_SERVER['TRUSTED_HOSTS'] ?? false) {
+    Request::setTrustedHosts([$trustedHosts]);
+}
+
+$kernel = new Kernel($_SERVER['APP_ENV'], (bool) $_SERVER['APP_DEBUG']);
+$request = Request::createFromGlobals();
+$response = $kernel->handle($request);
+$response->send();
+$kernel->terminate($request, $response);
+=======
+=======
+>>>>>>> a7dcd2d9eb1b764cabc37232f5ca1c9156d4d917
 declare (strict_types = 1);
 
 /**
@@ -42,3 +72,7 @@ $routes($app);
 
 // Run app
 $app->run();
+<<<<<<< HEAD
+>>>>>>> a7dcd2d9eb1b764cabc37232f5ca1c9156d4d917
+=======
+>>>>>>> a7dcd2d9eb1b764cabc37232f5ca1c9156d4d917
