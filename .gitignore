@@ -6,7 +6,5 @@
 !/logs/README.md
 .phpunit.result.cache
 /public/.htaccess
-src/Services/Mailer.php
-src/Services/Connection.php
 slim.sql
 tmp.txt
