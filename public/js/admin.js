@@ -117,8 +117,6 @@ const addTask = () => {
     const counter = container.querySelectorAll('.task').length;
     const id = parseInt(counter) + 1;
 
-    console.log(counter)
-
     let newRow = document.createElement('div');
     newRow.classList.add('row', 'task', 'align-items-baseline', "mb-1");
     newRow.setAttribute('data-task', id);

@@ -23,7 +23,7 @@ class AuthorizationMiddleware extends AbstractController
         $authorization = $request->getHeaderLine('Authorization');
         $user = Auth::getAuth();
 
-        if (!array_key_exists('Authorization', $request->getHeaders())) {
+        if (!array_key_exists('Authorization', $request->getHeaders()) || !array_key_exists('authorization', $request->getHeaders())) {
             $response = new Response();
 
             return $this->json([

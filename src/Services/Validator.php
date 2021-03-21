@@ -24,7 +24,7 @@ class Validator
      */
     public static function pseudo(string $pseudo): bool
     {
-        return strlen($pseudo) > 5 ? true : false;
+        return strlen($pseudo) >= 5 ? true : false;
     }
 
     /**
