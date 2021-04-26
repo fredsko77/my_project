@@ -23,11 +23,11 @@ class AuthorizationMiddleware extends AbstractController
         $authorization = $request->getHeaderLine('Authorization');
         $user = Auth::getAuth();
 
-        if (!array_key_exists('Authorization', $request->getHeaders()) || !array_key_exists('authorization', $request->getHeaders())) {
+        if (!array_key_exists('Authorization', $request->getHeaders())) {
             $response = new Response();
 
             return $this->json([
-                'authorization' => $this->setJsonMessage('Vous n\'avez pas d\'autorisation pour effectuer cette requête !'),
+                'Authorization' => $this->setJsonMessage('Vous n\'avez pas d\'autorisation pour effectuer cette requête !'),
             ], $response, 403);
         }
 
@@ -36,7 +36,7 @@ class AuthorizationMiddleware extends AbstractController
             if ($user instanceof Users && $user->getToken() !== $authorization) {
 
                 return $this->json([
-                    'authorization' => $this->setJsonMessage('Vous autorisation n\'est pas valide !'),
+                    'Authorization' => $this->setJsonMessage('Vous autorisation n\'est pas valide !'),
                 ], $response, 403);
             }
 

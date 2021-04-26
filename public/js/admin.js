@@ -1,5 +1,5 @@
 var header = {
-    'Authorization': localStorage.getItem('token'),
+    'authorization': localStorage.getItem('token'),
 };
 
 const handleProject = (form, e) => {
